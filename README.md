@@ -134,6 +134,76 @@ Note: `eleven` and `migrate` bind-mount the repo and run `npm install && npm run
 
 ---
 
+## Pterodactyl Guide
+
+This guide explains how to host Eleven on a Pterodactyl panel.
+
+### 1. Download the Latest Release
+
+Download the latest release directly:
+```
+https://github.com/OpenUwU/eleven/releases/latest/download/eleven.zip
+```
+
+### 2. Get a Pterodactyl Server
+
+Obtain a Pterodactyl server from:
+- **AeroX Discord**: [discord.gg/aerox](https://discord.gg/aerox)
+- Or any other Pterodactyl hosting provider
+
+### 3. Configure Server Settings
+
+- **Software**: Node.js
+- **Node.js Version**: 24
+- **Startup File**: `dist/index.js`
+
+### 4. Upload Files
+
+1. Go to the **Files** tab in your Pterodactyl panel
+2. Upload the zip file you downloaded from GitHub releases
+3. Extract the zip file
+
+### 5. Move Files to Correct Directory
+
+After extracting, follow these steps to move the files to the correct directory:
+
+- Open the current folder (the extracted folder)
+- Select **all files** inside it
+- Click **Move** (it may either say **Move** or appear as a **capital "I" icon**)
+- In the popup path field, enter: `../`
+- Click **Move** to confirm
+- After the files are moved, **restart your server**
+
+### 6. Configure Environment Variables
+
+1. Rename `.env.example` to `.env`
+2. Fill in the required environment variables with your values:
+
+| Variable | Description |
+| :--- | :--- |
+| `DISCORD_TOKEN` | Discord Bot Token from Developer Portal |
+| `DISCORD_CLIENT_ID` | Discord Bot Application Client ID |
+| `SUPPORT_LINK` | Discord invite link to your support server |
+| `NODE_ENV` | `development` or `production` |
+| `POSTGRES_URL` | PostgreSQL connection string |
+| `REDIS_URL` | Redis connection URL |
+| `LAVALINK_HOST` | Lavalink server host / IP |
+| `LAVALINK_PORT` | Lavalink server port |
+| `LAVALINK_AUTH` | Lavalink node password |
+| `LAVALINK_SECURE` | Set to `true` if Lavalink uses SSL/WSS |
+| `LAVALINK_NODE_NAME` | Name/identifier for Lavalink node |
+| `WEBHOOK_PORT` | Port for internal webhook server |
+| `TOPGG_WEBHOOK_SECRET` | Secret key for Top.gg vote webhooks |
+| `PREMIUM_WEBHOOK_SECRET`| Secret key for premium webhooks |
+| `backupWebhook` | Discord webhook URL for database backup notifications |
+| `VOTE_ENABLED` | Set to `true` to enable vote checks from top.gg |
+
+### 7. Start the Server
+
+After completing the above steps, start your Pterodactyl server. The bot should now be running.
+
+---
+
 ## Available Scripts
 
 | Command | Action |
