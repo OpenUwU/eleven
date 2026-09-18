@@ -22,7 +22,7 @@ import pg from "pg";
 
 const projectRoot = fileURLToPath(new URL("../", import.meta.url));
 const envFilePath = join(projectRoot, ".env");
-const schemaDirectory = join(projectRoot, "src/db/schema");
+const schemaDirectory = join(projectRoot, "schema");
 const dryRun = process.argv.includes("--dry");
 
 if (existsSync(envFilePath)) {
