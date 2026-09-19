@@ -41,7 +41,7 @@ registerCron({
 			if (player.destroyed) continue;
 
 			if (!player.hasCurrentTrack && player.queue.size === 0) continue;
-
+			// biome-ignore lint/performance/noAwaitInLoops: required
 			const guild = await guildStore.get(guildId).catch(() => null);
 			const twentyFourSeven = guild?.twentyFourSeven ?? false;
 
@@ -49,8 +49,7 @@ registerCron({
 
 			const empty =
 				!twentyFourSeven && player.voiceChannelId
-					? // biome-ignore lint/performance/noAwaitInLoops: required
-						await isChannelEmpty(client, player.voiceChannelId)
+					? await isChannelEmpty(client, player.voiceChannelId)
 					: false;
 
 			if (!empty && !stalePaused) continue;
