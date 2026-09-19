@@ -14,11 +14,11 @@
 		"format": "biome format ./src --write",
 		"lint": "biome lint ./src",
 		"prepare": "husky",
-		"migrate": "node scripts/migrate.js"
+		"migrate": "node scrpt/migrate.js"
 	},
 	"lint-staged": {
 		"**/*.{ts,js}": [
-			"node scripts/header.js --stage",
+			"node scrpt/header.js --stage",
 			"biome format --write",
 			"biome lint --write"
 		]
