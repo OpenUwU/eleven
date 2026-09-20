@@ -33,6 +33,7 @@ import {
 	TextDisplay,
 	TextInput,
 } from "../../utils/components.js";
+import { formatDuration } from "../../utils/duration.js";
 
 const TRACKS_PER_PAGE = 4;
 
@@ -40,16 +41,6 @@ interface ViewerPermissions {
 	readonly viewerId: string;
 	readonly isMod: boolean;
 	readonly fairplayActive: boolean;
-}
-
-function formatDuration(ms: number): string {
-	if (!ms || ms < 0) return "Live";
-	const totalSeconds = Math.floor(ms / 1000);
-	const hours = Math.floor(totalSeconds / 3600);
-	const minutes = Math.floor((totalSeconds % 3600) / 60);
-	const seconds = totalSeconds % 60;
-	const pad = (n: number) => n.toString().padStart(2, "0");
-	return hours > 0 ? `${hours}:${pad(minutes)}:${pad(seconds)}` : `${minutes}:${pad(seconds)}`;
 }
 
 function truncate(text: string, length: number): string {

@@ -10,6 +10,7 @@ import { Middleware } from "../../middlewares/index.js";
 import type { CommandContext } from "../../structures/context/index.js";
 import { defineCommand } from "../../types/index.js";
 import { defContainer, errorContainer, TextDisplay } from "../../utils/components.js";
+import { formatDuration } from "../../utils/duration.js";
 
 const UNIT_MS: Record<string, number> = {
 	h: 3_600_000,
@@ -57,19 +58,6 @@ function parseUnitFormat(input: string): number | null {
 function parsePosition(raw: string): number | null {
 	const input = raw.trim().toLowerCase();
 	return parsePlainSeconds(input) ?? parseColonFormat(input) ?? parseUnitFormat(input);
-}
-
-function pad(n: number): string {
-	return String(n).padStart(2, "0");
-}
-
-function formatDuration(ms: number): string {
-	if (!ms || ms < 0) return "Live";
-	const totalSeconds = Math.floor(ms / 1000);
-	const hours = Math.floor(totalSeconds / 3600);
-	const minutes = Math.floor((totalSeconds % 3600) / 60);
-	const seconds = totalSeconds % 60;
-	return hours > 0 ? `${hours}:${pad(minutes)}:${pad(seconds)}` : `${minutes}:${pad(seconds)}`;
 }
 
 async function replySeekError(

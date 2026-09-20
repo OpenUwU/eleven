@@ -38,7 +38,11 @@ import {
 	secondaryButton,
 	TextDisplay,
 } from "../../utils/components.js";
-import { filterShortTracks, formatMinDurationNotice } from "../../utils/duration.js";
+import {
+	filterShortTracks,
+	formatDuration,
+	formatMinDurationNotice,
+} from "../../utils/duration.js";
 
 const RESULTS_PER_PAGE = 5;
 
@@ -96,16 +100,6 @@ function truncate(text: string, length: number): string {
 function sanitizeLinkText(text: string, length: number): string {
 	const cleaned = (text ?? "").replace(/[[\]()]/g, "").trim();
 	return truncate(cleaned || "Unknown", length);
-}
-
-function formatDuration(ms: number): string {
-	if (!ms || ms < 0) return "Live";
-	const totalSeconds = Math.floor(ms / 1000);
-	const hours = Math.floor(totalSeconds / 3600);
-	const minutes = Math.floor((totalSeconds % 3600) / 60);
-	const seconds = totalSeconds % 60;
-	const pad = (n: number) => n.toString().padStart(2, "0");
-	return hours > 0 ? `${hours}:${pad(minutes)}:${pad(seconds)}` : `${minutes}:${pad(seconds)}`;
 }
 
 function pageCountOf(size: number): number {
