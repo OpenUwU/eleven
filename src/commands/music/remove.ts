@@ -68,7 +68,7 @@ function validateIndexes(
 	return { valid, invalid, outOfRange };
 }
 
-export function formatRemovedList(tracks: QueueTrack[]): string {
+function formatRemovedList(tracks: QueueTrack[]): string {
 	if (tracks.length === 0) return "";
 	if (tracks.length === 1) return `**${tracks[0]?.info.title}**`;
 	if (tracks.length === 2) return `**${tracks[0]?.info.title}** and **${tracks[1]?.info.title}**`;
