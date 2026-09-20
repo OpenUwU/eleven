@@ -68,12 +68,10 @@ function validateIndexes(
 	return { valid, invalid, outOfRange };
 }
 
-function formatRemovedList(tracks: QueueTrack[]): string {
+export function formatRemovedList(tracks: QueueTrack[]): string {
 	if (tracks.length === 0) return "";
-	if (!tracks[0]) return "";
-	if (!tracks[1]) return "";
-	if (tracks.length === 1) return `**${tracks[0].info.title}**`;
-	if (tracks.length === 2) return `**${tracks[0].info.title}** and **${tracks[1].info.title}**`;
+	if (tracks.length === 1) return `**${tracks[0]?.info.title}**`;
+	if (tracks.length === 2) return `**${tracks[0]?.info.title}** and **${tracks[1]?.info.title}**`;
 
 	const all = tracks.map((t) => `**${t.info.title}**`);
 	return `${all.slice(0, -1).join(", ")}, and ${all[all.length - 1]}`;
