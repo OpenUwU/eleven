@@ -51,7 +51,7 @@ export async function sendTrackStuck(player: MusicPlayer, client: BotClient): Pr
 	const channelId = player.currentTextChannelId;
 	if (!channelId) return;
 	const errorCont = errorContainer(
-		"### Track stuck",
+		"Track stuck",
 		"The track has been skipped due to an error.",
 	);
 
@@ -71,7 +71,7 @@ export async function sendTrackError(player: MusicPlayer, client: BotClient): Pr
 	const channelId = player.currentTextChannelId;
 	if (!channelId) return;
 	const errorCont = errorContainer(
-		"### Track error",
+		"Track error",
 		"The track has been skipped due to an error.",
 	);
 
