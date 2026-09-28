@@ -31,7 +31,7 @@ export default defineCommand({
 			"[Bun](https://bun.sh/)",
 			"[Postgres](https://www.postgresql.org/)",
 			"[Redis](https://redis.io/)",
-			"[discord.js](https://discord.js.org/)",
+			"[Discord.js](https://discord.js.org/)",
 			"[Shoukaku](https://github.com/shipgirlproject/Shoukaku/)",
 			"[lavalink](https://github.com/lavalink-devs/Lavalink/)",
 		];
